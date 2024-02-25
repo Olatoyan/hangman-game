@@ -7,7 +7,8 @@ function Modal({
 }: {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  const { gameStatus, handlePlayAgain, handleNewCategory } = useGame();
+  const { gameStatus, handlePlayAgain, handleNewCategory, handleQuitGame } =
+    useGame();
 
   function closeModal() {
     if (gameStatus === "playing") setIsModalOpen(false);
@@ -15,10 +16,16 @@ function Modal({
 
   function onPlayAgain() {
     handlePlayAgain();
+    setIsModalOpen(false);
   }
 
   function onNewCategory() {
     handleNewCategory();
+    setIsModalOpen(false);
+  }
+
+  function onQuitGame() {
+    handleQuitGame();
     setIsModalOpen(false);
   }
 
@@ -47,7 +54,7 @@ function Modal({
           {(gameStatus === "win" || gameStatus === "lose") && (
             <motion.button
               initial={{ scale: 1, y: 0 }}
-              whileHover={{ scale: 1.2, y: 10 }}
+              whileHover={{ scale: 1.1, y: 10 }}
               whileTap={{ scale: 1.1, y: 0 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r"
@@ -59,7 +66,7 @@ function Modal({
           {gameStatus === "playing" && (
             <motion.button
               initial={{ scale: 1, y: 0 }}
-              whileHover={{ scale: 1.2, y: 10 }}
+              whileHover={{ scale: 1.1, y: 10 }}
               whileTap={{ scale: 1.1, y: 0 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r"
@@ -70,7 +77,7 @@ function Modal({
           )}
           <motion.button
             initial={{ scale: 1, y: 0 }}
-            whileHover={{ scale: 1.2, y: 10 }}
+            whileHover={{ scale: 1.1, y: 10 }}
             whileTap={{ scale: 1.1, y: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r"
@@ -81,10 +88,11 @@ function Modal({
 
           <motion.button
             initial={{ scale: 1, y: 0 }}
-            whileHover={{ scale: 1.2, y: 10 }}
+            whileHover={{ scale: 1.1, y: 10 }}
             whileTap={{ scale: 1.1, y: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             className="rounded-[4rem] bg-gradient-to-b from-[#fe71fe] to-[#7199ff] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-pink-sh"
+            onClick={onQuitGame}
           >
             Quit game
           </motion.button>

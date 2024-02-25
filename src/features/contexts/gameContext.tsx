@@ -20,6 +20,7 @@ type State = {
   setGuessedLetters: (value: SetStateAction<string[]>) => void;
   handlePlayAgain: () => void;
   handleNewCategory: () => void;
+  handleQuitGame: () => void;
 };
 
 const GameContext = createContext<State | null>(null);
@@ -54,6 +55,16 @@ function GameProvider({ children }: { children: ReactNode }) {
     setGuessedLetters([]);
     setGameStatus("playing");
     navigate("/game");
+  }
+
+  function handleQuitGame() {
+    setWord("");
+    setIncorrectGuess(0);
+    setGuessedLetters([]);
+    setGameStatus("playing");
+    setCategory("");
+
+    navigate("/");
   }
 
   useEffect(() => {
@@ -96,6 +107,7 @@ function GameProvider({ children }: { children: ReactNode }) {
         setGameStatus,
         handlePlayAgain,
         handleNewCategory,
+        handleQuitGame,
       }}
     >
       {children}
