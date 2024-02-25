@@ -1,10 +1,12 @@
 import {
   ReactNode,
+  SetStateAction,
   createContext,
   useContext,
   useEffect,
   useState,
 } from "react";
+import { useNavigate } from "react-router-dom";
 
 type State = {
   word: string;
@@ -12,10 +14,12 @@ type State = {
   setIncorrectGuess: (number: number) => void;
   category: string;
   setCategory: (category: string) => void;
-
+  gameStatus: "playing" | "win" | "lose";
+  setGameStatus: (gameStatus: "playing" | "win" | "lose") => void;
   guessedLetters: string[];
-  setGuessedLetters: (guessedLetters: string[]) => void;
-
+  setGuessedLetters: (value: SetStateAction<string[]>) => void;
+  handlePlayAgain: () => void;
+  handleNewCategory: () => void;
 };
 
 const GameContext = createContext<State | null>(null);
@@ -26,6 +30,31 @@ function GameProvider({ children }: { children: ReactNode }) {
   const [chosenWords, setChosenWords] = useState<string[]>([]);
   const [category, setCategory] = useState("");
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [gameStatus, setGameStatus] = useState<"playing" | "win" | "lose">(
+    "playing",
+  );
+
+  const navigate = useNavigate();
+
+  function handlePlayAgain() {
+    const tempCategory = category;
+    setCategory("a");
+    setTimeout(() => {
+      setCategory(tempCategory);
+    }, 100);
+    setWord("");
+    setIncorrectGuess(0);
+    setGuessedLetters([]);
+    setGameStatus("playing");
+  }
+
+  function handleNewCategory() {
+    setWord("");
+    setIncorrectGuess(0);
+    setGuessedLetters([]);
+    setGameStatus("playing");
+    navigate("/game");
+  }
 
   useEffect(() => {
     if (!category) return;
@@ -63,6 +92,10 @@ function GameProvider({ children }: { children: ReactNode }) {
         setCategory,
         guessedLetters,
         setGuessedLetters,
+        gameStatus,
+        setGameStatus,
+        handlePlayAgain,
+        handleNewCategory,
       }}
     >
       {children}

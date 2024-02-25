@@ -18,9 +18,9 @@ function CategorySection() {
 
       <div className="grid grid-cols-3 gap-x-[3.2rem] gap-y-20">
         <CategoryBox category="Movies" />
-        <CategoryBox category="Tv shows" />
+        <CategoryBox category="Tv Shows" />
         <CategoryBox category="Countries" />
-        <CategoryBox category="Capital cities" />
+        <CategoryBox category="Capital Cities" />
         <CategoryBox category="Animals" />
         <CategoryBox category="Sports" />
       </div>

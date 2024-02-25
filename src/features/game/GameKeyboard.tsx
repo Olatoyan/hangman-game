@@ -1,21 +1,77 @@
 import { motion } from "framer-motion";
 import { useGame } from "../contexts/gameContext";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
-function GameKeyboard() {
+function GameKeyboard({
+  setIsModalOpen,
+}: {
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const {
     setGuessedLetters,
     guessedLetters,
     word,
     setIncorrectGuess,
     incorrectGuess,
+    setGameStatus,
   } = useGame();
   const alphabet = Array.from({ length: 26 }, (_, index) =>
     String.fromCharCode(65 + index),
   );
 
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const letter = event.key.toUpperCase();
+
+      if (!/^[a-zA-Z]+$/.test(event.key)) return;
+      if (!guessedLetters.includes(letter)) {
+        handleClick(letter);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [guessedLetters, word]);
+
+  useEffect(() => {
+    if (word) {
+      const wordLetters = word
+        .toUpperCase()
+        .split("")
+        .filter((letter) => letter !== " ");
+      console.log({ wordLetters });
+
+      const remainingLetters = wordLetters.filter(
+        (letter) => !guessedLetters.includes(letter),
+      );
+      console.log({ remainingLetters });
+
+      if (remainingLetters.length === 0) {
+        console.log("game won");
+        setGameStatus("win");
+        setTimeout(() => {
+          setIsModalOpen(true);
+        }, 1000);
+      }
+
+      if (incorrectGuess === 8) {
+        console.log("game lost");
+        setGameStatus("lose");
+        setTimeout(() => {
+          setIsModalOpen(true);
+        }, 1000);
+      }
+    }
+  }, [guessedLetters, word, incorrectGuess, setGameStatus, setIsModalOpen]);
+
   function handleClick(letter: string) {
-    setGuessedLetters([...guessedLetters, letter]);
+    setGuessedLetters((prev: string[]) => [...prev, letter]);
     const isWordCorrect = word.toUpperCase().includes(letter.toUpperCase());
+
+    console.log(isWordCorrect);
 
     if (!isWordCorrect) {
       setIncorrectGuess(incorrectGuess + 1);

@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import { useGame } from "../contexts/gameContext";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
-function GameHeader() {
+function GameHeader({
+  setIsModalOpen,
+}: {
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const { category, word, incorrectGuess } = useGame();
   console.log(word);
   const navigate = useNavigate();
@@ -12,10 +16,13 @@ function GameHeader() {
     if (!category) navigate("/");
   }, [category, navigate]);
 
+  function handleClick() {
+    setIsModalOpen((prev) => !prev);
+  }
   return (
     <header className="flex items-center justify-between">
       <div className="flex items-center gap-16">
-        <Button type="small">
+        <Button type="small" onClick={handleClick}>
           <img src="../icon-menu.svg" alt="menu icon" />
         </Button>
         <h1 className="text-[8.8rem] leading-[120%] text-white">{category}</h1>

@@ -2,7 +2,7 @@ import { useGame } from "../contexts/gameContext";
 import DisplayWords from "./DisplayWords";
 
 function DisplayWordContainer() {
-  const { word, guessedLetters } = useGame();
+  const { word, guessedLetters, incorrectGuess } = useGame();
   console.log(word);
 
   return (
@@ -11,13 +11,20 @@ function DisplayWordContainer() {
         <>
           {letter !== " " ? (
             <DisplayWords
-              key={`${letter}-${index}`}
+              key={index}
               letter={
-                guessedLetters.includes(letter.toUpperCase()) ? letter : ""
+                incorrectGuess === 8
+                  ? letter
+                  : guessedLetters.includes(letter.toUpperCase())
+                    ? letter
+                    : ""
               }
             />
           ) : (
-            <span className="rounded-[4rem] px-[6.4rem] py-[1.2rem] text-[8.8rem] uppercase leading-[120%] text-white">
+            <span
+              key={index}
+              className="rounded-[4rem] px-[6.4rem] py-[1.2rem] text-[8.8rem] uppercase leading-[120%] text-white"
+            >
               &nbsp;
             </span>
           )}

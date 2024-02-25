@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { useGame } from "../contexts/gameContext";
 
 function CategoryBox({ category }: { category: string }) {
-  const { setCategory } = useGame();
+  const { setCategory, setGameStatus } = useGame();
 
   function handleClick() {
     setCategory(category);
+    setGameStatus("playing");
   }
 
   return (
