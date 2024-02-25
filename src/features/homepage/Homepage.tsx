@@ -7,9 +7,11 @@ function Homepage() {
     <section className="flex min-h-[100dvh] flex-col items-center justify-center">
       <img src="./logo.svg" alt="hangman logo" className="z-[3] -mb-24" />
       <div className="to-[rgba(0, 20, 121, 0.83)] shadow-menu-sh flex flex-col items-center justify-center gap-24 rounded-[7.2rem] bg-gradient-to-b from-[#344aba] px-52 py-44">
-        <Button type="big">
-          <img src="./icon-play.svg" alt="play icon" />
-        </Button>
+        <Link to="/game">
+          <Button type="big">
+            <img src="./icon-play.svg" alt="play icon" />
+          </Button>
+        </Link>
 
         <Link to="/rules">
           <motion.button

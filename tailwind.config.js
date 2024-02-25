@@ -22,7 +22,7 @@ export default {
           "linear-gradient(180deg, #344ABA 0%, rgba(0, 20, 121, 0.83) 100%)",
       },
       backgroundImage: {
-        "desktop-bg": "url(./background-desktop.svg)",
+        "desktop-bg": "url(../background-desktop.svg)",
         "blue-gradient":
           "linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 100%), #2463FF",
       },
