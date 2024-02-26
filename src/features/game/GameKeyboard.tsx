@@ -41,16 +41,13 @@ function GameKeyboard({
       const wordLetters = word
         .toUpperCase()
         .split("")
-        .filter((letter) => letter !== " ");
-      
+        .filter((letter) => letter !== " " && letter !== "'");
 
       const remainingLetters = wordLetters.filter(
         (letter) => !guessedLetters.includes(letter),
       );
-      
 
       if (remainingLetters.length === 0) {
-      
         setGameStatus("win");
         setTimeout(() => {
           setIsModalOpen(true);
@@ -58,7 +55,6 @@ function GameKeyboard({
       }
 
       if (incorrectGuess === 8) {
-      
         setGameStatus("lose");
         setTimeout(() => {
           setIsModalOpen(true);
@@ -70,8 +66,6 @@ function GameKeyboard({
   function handleClick(letter: string) {
     setGuessedLetters((prev: string[]) => [...prev, letter]);
     const isWordCorrect = word.toUpperCase().includes(letter.toUpperCase());
-
-
 
     if (!isWordCorrect) {
       setIncorrectGuess(incorrectGuess + 1);

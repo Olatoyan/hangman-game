@@ -6,8 +6,6 @@ function DisplayWordContainer() {
 
   const words = word.split(" ");
 
- 
-
   return (
     <div className="flex flex-wrap justify-center gap-32 gap-y-8 mobile:gap-x-20">
       {words.map((word, index) => (
@@ -21,9 +19,11 @@ function DisplayWordContainer() {
               letter={
                 incorrectGuess === 8
                   ? letter
-                  : guessedLetters.includes(letter.toUpperCase())
+                  : letter === "'"
                     ? letter
-                    : ""
+                    : guessedLetters.includes(letter.toUpperCase())
+                      ? letter
+                      : ""
               }
             />
           ))}
