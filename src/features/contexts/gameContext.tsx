@@ -85,8 +85,6 @@ function GameProvider({ children }: { children: ReactNode }) {
 
         setWord(selectedWord.name);
         setChosenWords((prev) => [...prev, selectedWord.name]);
-      } else {
-        console.log("No available words left in this category.");
       }
     }
 

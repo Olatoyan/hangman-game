@@ -42,15 +42,15 @@ function GameKeyboard({
         .toUpperCase()
         .split("")
         .filter((letter) => letter !== " ");
-      console.log({ wordLetters });
+      
 
       const remainingLetters = wordLetters.filter(
         (letter) => !guessedLetters.includes(letter),
       );
-      console.log({ remainingLetters });
+      
 
       if (remainingLetters.length === 0) {
-        console.log("game won");
+      
         setGameStatus("win");
         setTimeout(() => {
           setIsModalOpen(true);
@@ -58,7 +58,7 @@ function GameKeyboard({
       }
 
       if (incorrectGuess === 8) {
-        console.log("game lost");
+      
         setGameStatus("lose");
         setTimeout(() => {
           setIsModalOpen(true);
@@ -71,7 +71,7 @@ function GameKeyboard({
     setGuessedLetters((prev: string[]) => [...prev, letter]);
     const isWordCorrect = word.toUpperCase().includes(letter.toUpperCase());
 
-    console.log(isWordCorrect);
+
 
     if (!isWordCorrect) {
       setIncorrectGuess(incorrectGuess + 1);

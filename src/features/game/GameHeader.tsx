@@ -8,8 +8,7 @@ function GameHeader({
 }: {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  const { category, word, incorrectGuess } = useGame();
-  console.log(word);
+  const { category, incorrectGuess } = useGame();
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -3,17 +3,10 @@ import DisplayWords from "./DisplayWords";
 
 function DisplayWordContainer() {
   const { word, guessedLetters, incorrectGuess } = useGame();
-  console.log(word);
 
   const words = word.split(" ");
-  console.log(words);
 
-  const formattedWords = word.split(" ").map((word) => {
-    // Remove leading or trailing spaces
-    return word.trim();
-  });
-
-  console.log({ formattedWords });
+ 
 
   return (
     <div className="flex flex-wrap justify-center gap-32 gap-y-8 mobile:gap-x-20">
