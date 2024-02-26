@@ -79,7 +79,7 @@ function GameKeyboard({
   }
 
   return (
-    <div className="mt-auto flex flex-wrap gap-[2.4rem] mobile:gap-5">
+    <div className="flex flex-wrap gap-[2.4rem] mobile:gap-5">
       {alphabet.map((letter) => (
         <motion.button
           initial={{ scale: 1 }}

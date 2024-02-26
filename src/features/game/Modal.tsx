@@ -43,21 +43,21 @@ function Modal({
         exit={{ scale: 0 }}
         transition={{ type: "spring", stiffness: 250, damping: 20 }}
       >
-        <h3 className="relative z-[5] -mb-20 w-full bg-gradient-to-b from-[#67b6ff] to-white bg-clip-text stroke-[#243041] stroke-[8] text-center text-[13.6rem] leading-[120%] tracking-[-0.068rem] text-transparent">
+        <h3 className="relative z-[5] -mb-20 w-full bg-gradient-to-b from-[#67b6ff] to-white bg-clip-text stroke-[#243041] stroke-[8] text-center text-[13.6rem] leading-[120%] tracking-[-0.068rem] text-transparent mobile:text-[9.4rem] mobile:tracking-[-0.047rem]">
           {gameStatus === "playing"
             ? "Paused"
             : gameStatus === "win"
               ? "You Win"
               : "You Lose"}
         </h3>
-        <div className="to-[rgba(0, 20, 121, 0.83)] flex max-w-[60rem] flex-col items-center justify-center gap-24 rounded-[7.2rem] bg-gradient-to-b from-[#344aba] px-52 py-44 shadow-menu-sh">
+        <div className="to-[rgba(0, 20, 121, 0.83)] flex max-w-[60rem] flex-col items-center justify-center gap-24 rounded-[7.2rem] bg-gradient-to-b from-[#344aba] px-52 py-44 shadow-menu-sh mobile:px-20">
           {(gameStatus === "win" || gameStatus === "lose") && (
             <motion.button
               initial={{ scale: 1, y: 0 }}
               whileHover={{ scale: 1.1, y: 10 }}
               whileTap={{ scale: 1.1, y: 0 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r"
+              className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r mobile:px-12"
               onClick={onPlayAgain}
             >
               Play again
@@ -69,7 +69,7 @@ function Modal({
               whileHover={{ scale: 1.1, y: 10 }}
               whileTap={{ scale: 1.1, y: 0 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r"
+              className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r mobile:px-12"
               onClick={closeModal}
             >
               Continue
@@ -80,7 +80,7 @@ function Modal({
             whileHover={{ scale: 1.1, y: 10 }}
             whileTap={{ scale: 1.1, y: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r"
+            className="rounded-[4rem] bg-[#2463ff] from-[rgba(255,255,255,0.25)] to-[rgba(255,255,255,0.25)] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-purple-sh hover:bg-gradient-to-r mobile:px-12"
             onClick={onNewCategory}
           >
             New Category
@@ -91,7 +91,7 @@ function Modal({
             whileHover={{ scale: 1.1, y: 10 }}
             whileTap={{ scale: 1.1, y: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            className="rounded-[4rem] bg-gradient-to-b from-[#fe71fe] to-[#7199ff] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-pink-sh"
+            className="rounded-[4rem] bg-gradient-to-b from-[#fe71fe] to-[#7199ff] px-[6.4rem] py-[1.2rem] text-[3.2rem] uppercase leading-[120%] tracking-[0.16rem] text-white shadow-pink-sh mobile:px-12"
             onClick={onQuitGame}
           >
             Quit game
