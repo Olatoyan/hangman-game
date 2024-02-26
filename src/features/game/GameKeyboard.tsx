@@ -62,7 +62,7 @@ function GameKeyboard({
         setGameStatus("lose");
         setTimeout(() => {
           setIsModalOpen(true);
-        }, 1000);
+        }, 1500);
       }
     }
   }, [guessedLetters, word, incorrectGuess, setGameStatus, setIsModalOpen]);

@@ -15,16 +15,18 @@ export default {
           "0px 6px 0px 8px #2463FF inset, 0px -8px 0px 4px #140E66 inset",
       },
 
-      backgroundColor: {
-        "play-gradient":
-          "linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 100%), linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
-        "purple-gradient":
-          "linear-gradient(180deg, #344ABA 0%, rgba(0, 20, 121, 0.83) 100%)",
-      },
       backgroundImage: {
         "desktop-bg": "url(../background-desktop.svg)",
+        "tablet-bg": "url(../background-tablet.svg)",
+        "mobile-bg": "url(../background-mobile.svg)",
         "blue-gradient":
           "linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 100%), #2463FF",
+      },
+      screens: {
+        desktop: { max: "75em" },
+        laptop: { max: "64em" },
+        tablet: { max: "48em" },
+        mobile: { max: "37.5em" },
       },
     },
   },

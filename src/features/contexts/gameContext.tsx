@@ -39,7 +39,7 @@ function GameProvider({ children }: { children: ReactNode }) {
 
   function handlePlayAgain() {
     const tempCategory = category;
-    setCategory("a");
+    setCategory("loading...");
     setTimeout(() => {
       setCategory(tempCategory);
     }, 100);
