@@ -8,10 +8,20 @@ function DisplayWordContainer() {
   const words = word.split(" ");
   console.log(words);
 
+  const formattedWords = word.split(" ").map((word) => {
+    // Remove leading or trailing spaces
+    return word.trim();
+  });
+
+  console.log({ formattedWords });
+
   return (
-    <div className="flex flex-wrap justify-center gap-[1.6rem]">
+    <div className="flex flex-wrap justify-center gap-32 gap-y-8 mobile:gap-x-20">
       {words.map((word, index) => (
-        <div key={index} className="flex items-center gap-[1.6rem]">
+        <div
+          key={index}
+          className="flex flex-wrap items-center justify-center gap-[1.6rem] mobile:gap-2"
+        >
           {word.split("").map((letter, index) => (
             <DisplayWords
               key={index}
@@ -24,11 +34,6 @@ function DisplayWordContainer() {
               }
             />
           ))}
-          {index !== words.length - 1 && (
-            <span className="rounded-[4rem] px-[4.4rem] py-[1.2rem] text-[8.8rem] uppercase leading-[120%] text-white">
-              &nbsp;
-            </span>
-          )}
         </div>
       ))}
     </div>

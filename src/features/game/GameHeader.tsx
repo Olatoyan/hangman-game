@@ -21,18 +21,20 @@ function GameHeader({
   }
   return (
     <header className="flex items-center justify-between">
-      <div className="flex items-center gap-16">
+      <div className="flex items-center gap-16 mobile:gap-6">
         <Button type="small" onClick={handleClick}>
           <img src="../icon-menu.svg" alt="menu icon" />
         </Button>
-        <h1 className="text-[8.8rem] leading-[120%] text-white">{category}</h1>
+        <h1 className="text-[8.8rem] leading-[120%] text-white laptop:text-[4.8rem]">
+          {category}
+        </h1>
       </div>
 
       <div className="flex items-center gap-8">
         <progress
           max="8"
           value={8 - incorrectGuess}
-          className="transition-all duration-500 ease-in-out [&::-moz-progress-bar]:bg-white [&::-webkit-progress-bar]:rounded-full [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-bar]:p-[2px] [&::-webkit-progress-value]:rounded-full [&::-webkit-progress-value]:bg-[#261676]"
+          className="h-[1.3rem] transition-all duration-500 ease-in-out mobile:w-[6rem] [&::-moz-progress-bar]:bg-white [&::-webkit-progress-bar]:rounded-full [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-bar]:p-[2px_6px] mobile:[&::-webkit-progress-bar]:p-[2px_3px] [&::-webkit-progress-value]:rounded-full [&::-webkit-progress-value]:bg-[#261676]"
         />
         <img
           src="../icon-heart.svg"

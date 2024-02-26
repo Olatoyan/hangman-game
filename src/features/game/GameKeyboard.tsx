@@ -79,7 +79,7 @@ function GameKeyboard({
   }
 
   return (
-    <div className="mt-auto flex flex-wrap gap-[2.4rem]">
+    <div className="mt-auto flex flex-wrap gap-[2.4rem] mobile:gap-5">
       {alphabet.map((letter) => (
         <motion.button
           initial={{ scale: 1 }}
@@ -87,7 +87,7 @@ function GameKeyboard({
           whileTap={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           key={letter}
-          className={`rounded-[2.4rem] bg-white px-[5.4rem] py-[1.2rem] text-[4.8rem] uppercase leading-[120%] tracking-[0.24rem] text-[#261676]  disabled:bg-opacity-25 ${guessedLetters.includes(letter) ? "cursor-not-allowed" : "hover:bg-[#2463ff] hover:text-white"}`}
+          className={`rounded-[2.4rem] bg-white px-[5.4rem] py-[1.2rem] text-[4.8rem] uppercase leading-[120%] tracking-[0.24rem] text-[#261676] disabled:bg-opacity-25 laptop:px-10 mobile:px-6  mobile:text-[2.4rem] ${guessedLetters.includes(letter) ? "cursor-not-allowed" : "hover:bg-[#2463ff] hover:text-white"}`}
           disabled={guessedLetters.includes(letter)}
           onClick={() => handleClick(letter)}
         >

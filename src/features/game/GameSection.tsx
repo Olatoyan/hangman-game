@@ -9,7 +9,7 @@ function GameSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col gap-[6.4rem] bg-opacity-75 bg-gradient-to-b from-[#1a043a] to-[#151278] px-44 py-8">
+    <section className="desktop:px-24 mobile:px-10 relative flex min-h-[100dvh] flex-col gap-[6.4rem] bg-opacity-75 bg-gradient-to-b from-[#1a043a] to-[#151278] px-44 py-8">
       <GameHeader setIsModalOpen={setIsModalOpen} />
       <DisplayWordContainer />
       <GameKeyboard setIsModalOpen={setIsModalOpen} />
